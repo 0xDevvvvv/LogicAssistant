@@ -116,38 +116,4 @@ def prompts(type,content):
         case _:
             explanation = generateType(content)
     
-
-    # if lines[0].startswith("#") or lines[0].startswith("//") or lines[0].startswith("/*"):
-    #     explanation = send_request(sysprompts[0], lines[0])
-    #     content = "\n".join(lines[1:]) 
-    #analysis = send_request(sysprompts[1], content)
-    #print(f"""Explanation : {explanation.strip()}\n\nAnalysis: {analysis.strip()}""") if explanation else analysis
-    #return f"""Explanation : {explanation.strip()}\n\nAnalysis: {analysis.strip()}""" if explanation else analysis
-
     return explanation if explanation else ""
-
-
-
-'''def prompts(content):
-    headers = { 'Content-Type': 'application/json','Authorization' : f'Bearer {GROQ_KEY}'}
-    r = requests.post(GROQ_URL,
-                      json={
-            "model": "llama-3.3-70b-versatile",
-            "messages": [{
-                "role": "system",
-                "content": "You are a coding assistant that only provides the user with logic wise hints towards the solution, no direct solutons should be given,responses should be intended for the user to analyse and then understand what approach should be taken No real coding help should be provided. The response should be no more than 2 lines only giving information that teases the brain of the user.Help the user to build logic by himself not with your use. The question is Binary Search.The response should only be 2 lines."
-            },{
-                "role": "user",
-                "content": content}]
-    },
-    headers=headers )
-    response_json = r.json()
-
-    # Extract and print the 'content' field from the first choice
-    if 'choices' in response_json and len(response_json['choices']) > 0:
-        content = response_json['choices'][0]['message']['content']
-        print(content)
-        return content
-        
-    else:
-        return(print("No content found in the response."))'''
